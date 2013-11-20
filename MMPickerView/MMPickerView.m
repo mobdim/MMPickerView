@@ -20,7 +20,7 @@ NSString * const MMtextAlignment = @"textAlignment";
 NSString * const MMshowsSelectionIndicator = @"showsSelectionIndicator";
 
 @interface MMPickerView () <UIPickerViewDelegate, UIPickerViewDataSource>
-
+/*
 @property (nonatomic, strong) UILabel *pickerViewLabel;
 @property (nonatomic, strong) UIView *pickerViewLabelView;
 @property (nonatomic, strong) UIView *pickerContainerView;
@@ -39,7 +39,8 @@ NSString * const MMshowsSelectionIndicator = @"showsSelectionIndicator";
 @property (nonatomic, assign) BOOL pickerViewShowsSelectionIndicator;
 @property (copy) void (^onDismissCompletion)(NSString *);
 @property (copy) NSString *(^objectToStringConverter)(id object);
-
+*/
+ 
 @end
 
 

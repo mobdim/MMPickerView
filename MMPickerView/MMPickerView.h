@@ -34,4 +34,23 @@ extern NSString * const MMshowsSelectionIndicator;
 
 +(void)dismissWithCompletion: (void(^)(NSString *))completion;
 
+@property (nonatomic, strong) UILabel *pickerViewLabel;
+@property (nonatomic, strong) UIView *pickerViewLabelView;
+@property (nonatomic, strong) UIView *pickerContainerView;
+@property (nonatomic, strong) UIView *pickerViewContainerView;
+@property (nonatomic, strong) UIView *pickerTopBarView;
+@property (nonatomic, strong) UIImageView *pickerTopBarImageView;
+@property (nonatomic, strong) UIToolbar *pickerViewToolBar;
+@property (nonatomic, strong) UIBarButtonItem *pickerViewBarButtonItem;
+@property (nonatomic, strong) UIButton *pickerDoneButton;
+@property (nonatomic, strong) UIPickerView *pickerView;
+@property (nonatomic, strong) NSArray *pickerViewArray;
+@property (nonatomic, strong) UIColor *pickerViewTextColor;
+@property (nonatomic, strong) UIFont *pickerViewFont;
+@property (nonatomic, assign) CGFloat yValueFromTop;
+@property (nonatomic, assign) NSInteger pickerViewTextAlignment;
+@property (nonatomic, assign) BOOL pickerViewShowsSelectionIndicator;
+@property (copy) void (^onDismissCompletion)(NSString *);
+@property (copy) NSString *(^objectToStringConverter)(id object);
+
 @end
