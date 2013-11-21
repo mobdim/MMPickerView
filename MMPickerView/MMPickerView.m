@@ -176,10 +176,17 @@ NSString * const MMshowsSelectionIndicator = @"showsSelectionIndicator";
   UIImage * toolbarImage = options[MMtoolbarBackgroundImage];
   
   //Whole screen with PickerView and a dimmed background
-  _pickerViewContainerView = [[UIView alloc] initWithFrame:view.bounds];
-  [_pickerViewContainerView setBackgroundColor: [UIColor colorWithRed:0.412 green:0.412 blue:0.412 alpha:0.7]];
-  [self addSubview:_pickerViewContainerView];
-  
+    
+//  _pickerViewContainerView = [[UIView alloc] initWithFrame:view.bounds];
+//  [_pickerViewContainerView setBackgroundColor: [UIColor colorWithRed:0.412 green:0.412 blue:0.412 alpha:0.7]];
+//  [self addSubview:_pickerViewContainerView];
+
+    UIWindow *w = [[UIApplication sharedApplication].windows objectAtIndex:0];
+    _pickerViewContainerView = [[UIView alloc] initWithFrame:w.bounds];
+    [_pickerViewContainerView setBackgroundColor: [UIColor colorWithRed:0.412 green:0.412 blue:0.412 alpha:0.7]];
+    [w addSubview:_pickerViewContainerView];
+
+    
   //PickerView Container with top bar
   _pickerContainerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, _pickerViewContainerView.bounds.size.height - 260.0, 320.0, 260.0)];
     
@@ -284,7 +291,10 @@ NSString * const MMshowsSelectionIndicator = @"showsSelectionIndicator";
   [_pickerContainerView setTransform:CGAffineTransformMakeTranslation(0.0, CGRectGetHeight(_pickerContainerView.frame))];
   
   //Set selected row
-  [_pickerView selectRow:selectedRow inComponent:0 animated:YES];
+// ++
+//  [_pickerView selectRow:selectedRow inComponent:0 animated:YES];
+  [_pickerView selectRow:selectedRow inComponent:0 animated:NO];
+// --
 }
 
 #pragma mark - UIPickerViewDataSource
@@ -311,7 +321,9 @@ NSString * const MMshowsSelectionIndicator = @"showsSelectionIndicator";
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
   if (self.objectToStringConverter == nil) {
-    self.onDismissCompletion ([_pickerViewArray objectAtIndex:row]);
+// ++
+    //self.onDismissCompletion ([_pickerViewArray objectAtIndex:row]);
+// --
   } else{
     self.onDismissCompletion (self.objectToStringConverter ([self selectedObject]));
   }

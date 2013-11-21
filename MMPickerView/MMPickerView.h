@@ -21,6 +21,12 @@ extern NSString * const MMshowsSelectionIndicator;
 
 @interface MMPickerView: UIView 
 
+// ++
+-(void)initializePickerViewInView: (UIView *)view
+                        withArray: (NSArray *)array
+                      withOptions: (NSDictionary *)options;
+// --
+
 +(void)showPickerViewInView: (UIView *)view
                 withStrings: (NSArray *)strings
                 withOptions: (NSDictionary *)options
